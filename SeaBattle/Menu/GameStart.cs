@@ -7,15 +7,15 @@ namespace SeaBattle.Menu
     {
         Board board = new Board();
         public void Start()
-        {/*
+        {
             while (true)
-            {*/
+            {
                 board.DrawBoard();
 
 
                 Inputs userInput = new Inputs();
                 userInput.UserInput();
-            /*}*/
+            }
         }
     }
 }
