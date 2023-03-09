@@ -6,7 +6,6 @@ public class Board
 {
     public static char[,] playerCells = new char[10, 10];
     public static char[,] enemyCells = new char[10, 10];
-
     public void DrawBoard()
     {
         //=========================Player's cells==============================================
@@ -25,19 +24,15 @@ public class Board
                 enemyCells[i, j] = '~';
             }
         }
-        //====================================================================================
-        //рандомные корабли врага
-        Random random = new Random();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 5; i++)
         {
-            enemyCells[random.Next(0, 10), random.Next(0, 10)] = '#';
+            Input.UserShips();
         }
-        //====================================================================================
+
         while (true)
         {
             Console.Clear();
-
-            // Player's 1 2 3 4 5 6 7 8 9 0
+            // Player's 1 2 3 4 5 6 7 8 9 10
             for (int k = 1; k < 11; k++)
             {
                 Console.Write(k + " ");
@@ -49,12 +44,7 @@ public class Board
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 for (int j = 0; j < enemyCells.GetLength(1); j++)
                 {
-                    if (enemyCells[i, j] == 'X')
-                    {
-                        Console.ForegroundColor = ConsoleColor.DarkRed;
-                    }
                     Console.Write(enemyCells[i, j] + " ");
-                    Console.ForegroundColor = ConsoleColor.Cyan;
                 }
                 Console.ResetColor();
                 Console.WriteLine(i + 1);
@@ -63,7 +53,8 @@ public class Board
             Console.WriteLine("\n");
 
             //=========================Enemies Attack to my cells===============================
-            /*for (int k = 1; k < 11; k++)
+            Console.SetCursorPosition(30, 0);
+            for (int k = 1; k < 11; k++)
             {
                 Console.Write(k + " ");
             }
@@ -71,22 +62,26 @@ public class Board
 
             for (int i = 0; i < playerCells.GetLength(0); i++)
             {
+                Console.SetCursorPosition(30, i + 1);
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 for (int j = 0; j < playerCells.GetLength(1); j++)
                 {
                     Console.Write(playerCells[i, j] + " ");
                 }
+                Console.ResetColor();
                 Console.WriteLine(i + 1);
-            }*/
+            }
             //===================================================================================
 
             for (int i = 0; i < Console.BufferWidth; i++)
             {
                 Console.Write('=');
             }
+            Win.WinCases(); // Кейсы победы, ничьи и поражения
             Input.UserInputs();// Ввод игрока
-            Win.WinCases(); // Кейсы победы, ничьи и поражения
             Ai.EasyBot();
-            Win.WinCases(); // Кейсы победы, ничьи и поражения
+           // Win.WinCases(); // Кейсы победы, ничьи и поражения
         }
     }
 }
