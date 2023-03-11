@@ -118,31 +118,31 @@ public static class Input
                 else if (index - 1 == shipX1 && index2 - 1 == shipY1)
                 {
                     enemyCells[shipX1, shipY1] = '*';
-                    Win.enemyShips--;
+                    enemyShips--;
                     break;
                 }
                 else if (index - 1 == shipX2 && index2 - 1 == shipY2)
                 {
                     enemyCells[shipX2, shipY2] = '*';
-                    Win.enemyShips--;
+                    enemyShips--;
                     break;
                 }
                 else if (index - 1 == shipX3 && index2 - 1 == shipY3)
                 {
                     enemyCells[shipX3, shipY3] = '*';
-                    Win.enemyShips--;
+                    enemyShips--;
                     break;
                 }
                 else if (index - 1 == shipX4 && index2 - 1 == shipY4)
                 {
                     enemyCells[shipX4, shipY4] = '*';
-                    Win.enemyShips--;
+                    enemyShips--;
                     break;
                 }
                 else if (index - 1 == shipX5 && index2 - 1 == shipY5)
                 {
                     enemyCells[shipX5, shipY5] = '*';
-                    Win.enemyShips--;
+                    enemyShips--;
                     break;
                 }
                 //========================================================================================

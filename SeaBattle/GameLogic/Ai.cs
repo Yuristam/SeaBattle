@@ -19,7 +19,7 @@ public class Ai
             else if (playerCells[index, index2] == '#')
             {
                 playerCells[index, index2] = '*';
-                Win.playerShips--;
+                playerShips--;
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"Enemy shot your ship [ {index + 1} : {index2 + 1} ]. It's your turn now");
                 Console.ResetColor();
