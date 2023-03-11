@@ -4,10 +4,16 @@ using SeaBattle.Menu;
 namespace SeaBattle.Graphics;
 public class Board
 {
+    public static int enemyShips = 0;
+    public static int playerShips = 0;
+
     public static char[,] playerCells = new char[10, 10];
     public static char[,] enemyCells = new char[10, 10];
     public static void DrawBoard()
     {
+        enemyShips = 5;
+        playerShips = 5;
+
         //=========================Player's cells==============================================
         for (int i = 0; i < playerCells.GetLength(0); i++)
         {
@@ -102,15 +108,15 @@ public class Board
             }
 
             Console.SetCursorPosition(60, 0);
-            Console.WriteLine($"Enemy's ships left: {Win.enemyShips}");
+            Console.WriteLine($"Enemy's ships left: {enemyShips}");
             Console.SetCursorPosition(60, 1);
-            Console.WriteLine($"Your ships left: {Win.playerShips}");
+            Console.WriteLine($"Your ships left: {playerShips}");
             Console.SetCursorPosition(60, 2);
             Console.WriteLine("X - missed, * - shot, # - Your ships");
 
             Console.SetCursorPosition(0,13);
-            Win.WinCases(); // Кейсы победы, ничьи и поражения
-            Input.UserInputs();// Ввод игрока
+            Win.WinCases();
+            Input.UserInputs();
             Ai.EasyBot();
         }
     }
